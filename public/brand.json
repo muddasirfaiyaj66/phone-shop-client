@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "brand_logo": "https://i.ibb.co/z23rBp0/Apple-Inc-Logo-wine.png",
+      "brand_name": "Apple"
+    },
+    {
+      "id": 2,
+      "brand_logo": "https://i.ibb.co/2FkY4Ch/gratis-png-samsung-galaxy-tab-a-10-1-samsung-electronics-lg-electronics-logo-samsung-removebg-previe.png",
+      "brand_name": "Samsung"
+    },
+    {
+      "id": 3,
+      "brand_logo": "https://i.ibb.co/FVGHQcv/pngwing-com-12.png",
+      "brand_name": "Google"
+    },
+    {
+      "id": 4,
+      "brand_logo": "https://i.ibb.co/t2KT8kX/png-transparent-logo-huawei-design-mobile-phones-product-logo-oppo-logo-mobile-phones-removebg-previ.png",
+      "brand_name": "Huawei"
+    },
+    {
+      "id": 5,
+      "brand_logo": "https://i.ibb.co/WgdSMny/7a0d054e60bc1a2fc44988f9e3ece709.png",
+      "brand_name": "Xiaomi"
+    },
+    {
+      "id": 6,
+      "brand_logo": "https://i.ibb.co/sy9MZFv/png-transparent-oneplus-5t-oneplus-6-oneplus-3-oneplus-logo-text-rectangle-logo-removebg-preview.png",
+      "brand_name": "OnePlus"
+    }
+  ]
+  

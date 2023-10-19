@@ -33,8 +33,8 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-        <div className="hidden md:flex">
-          <img className="w-[120px]  md:w-[150px] flex items-center justify-center" src="/logo.png" alt="" />
+        <div className="hidden md:flex  ">
+          <img className=" w-[250px]  flex items-center justify-center" src="/verticleLogo.png" alt="" />
         </div>
         </div>
         <div className="navbar-center hidden  md:flex">

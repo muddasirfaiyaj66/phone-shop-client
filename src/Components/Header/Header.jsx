@@ -5,9 +5,8 @@ import { Typography } from "@material-tailwind/react";
 const Header = () => {
     return (
         <div >
-         <div data-aos="fade-right"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine" className="carousel w-full md:h-[90vh] ">
+         <div 
+      className="carousel w-full md:h-[90vh] ">
   <div id="slide1" className="carousel-item relative w-full">
     <img src="/banner1.png" data-aos="fade-down" className="w-full" />
     <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/25">
