@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 
 
@@ -25,7 +26,24 @@ const AddPhones = () => {
         
         console.log(newPhoneData);
         //send data to the server
-
+        fetch('http://localhost:5000/phones', {
+          method:"POST",
+          headers:{
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(newPhoneData)
+        })
+        .then(res=> res.json())
+        .then(data => {
+          if(data.insertedId){
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Successfully added  New Coffee Data',
+             
+            })
+          }
+        })
         
     }
 

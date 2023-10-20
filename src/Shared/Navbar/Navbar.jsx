@@ -11,17 +11,17 @@ const Navbar = () => {
 
     
                <li> <NavLink to='/' className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "bg-[#AE69DD]  text-white " : ""
+    isPending ? "pending" : isActive ? "bg-[#3839AF]  text-white " : ""
   }>Home</NavLink></li>
                <li> <NavLink to='/about' className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "bg-[#AE69DD]  text-white " : ""
+    isPending ? "pending" : isActive ? "bg-[#3839AF]  text-white " : ""
   }>About</NavLink></li>
                <li> <NavLink to='/addphones' className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "bg-[#AE69DD]  text-white " : ""
+    isPending ? "pending" : isActive ? "bg-[#3839AF]  text-white " : ""
   }>Add Phones</NavLink></li>
         {
           user? "" : <li> <NavLink to='/register' className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "bg-[#AE69DD]  text-white " : ""
+          isPending ? "pending" : isActive ? "bg-[#3839AF]  text-white " : ""
         }>Register</NavLink></li>
                     
         }     
@@ -72,7 +72,7 @@ const Navbar = () => {
                         </div>
                             :
                             <Link to='/login'>
-                                <button className="btn btn-md  btn-ghost bg-[#3839AF]  text-white font-bold">Login</button>
+                                <button className="btn btn-md  btn-ghost hover:bg-[#3839AF] px-8 bg-black text-white font-bold">Login</button>
                             </Link>
                     }
                 </div>
