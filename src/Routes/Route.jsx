@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import AddPhones from "../Pages/AddPhones/AddPhones";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 const Route = createBrowserRouter([
@@ -28,7 +29,7 @@ const Route = createBrowserRouter([
             }, 
             {
                 path:'/addphones',
-                element: <AddPhones></AddPhones>
+                element: <PrivateRoute><AddPhones></AddPhones></PrivateRoute>
             }
         ]
     }

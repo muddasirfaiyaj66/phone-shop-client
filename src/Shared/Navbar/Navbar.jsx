@@ -1,27 +1,30 @@
-import {  NavLink } from "react-router-dom";
+import { useContext } from "react";
+import {  Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 
 const Navbar = () => {
+  const {user, logOut}= useContext(AuthContext);
+
 
     const navLinks = <>
 
     
                <li> <NavLink to='/' className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "bg-[#90EE90]  text-white " : ""
+    isPending ? "pending" : isActive ? "bg-[#AE69DD]  text-white " : ""
   }>Home</NavLink></li>
                <li> <NavLink to='/about' className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "bg-[#90EE90]  text-white " : ""
+    isPending ? "pending" : isActive ? "bg-[#AE69DD]  text-white " : ""
   }>About</NavLink></li>
                <li> <NavLink to='/addphones' className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "bg-[#90EE90]  text-white " : ""
+    isPending ? "pending" : isActive ? "bg-[#AE69DD]  text-white " : ""
   }>Add Phones</NavLink></li>
-               <li> <NavLink to='/register' className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "bg-[#90EE90]  text-white " : ""
-  }>Register</NavLink></li>
-               <li> <NavLink to='/login' className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "bg-[#90EE90]  text-white " : ""
-  }>Login</NavLink></li>
- 
+        {
+          user? "" : <li> <NavLink to='/register' className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "bg-[#AE69DD]  text-white " : ""
+        }>Register</NavLink></li>
+                    
+        }     
                 
     </>
     return (
@@ -45,18 +48,34 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <div className="navbar-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000" className="w-10 rounded-full">
-          <img src='' />
-        </div>
-      </label>
+       {/* avatar part  */}
+       <div className="navbar-end">
+                    {
+                        user?.email ? <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL? user.photoURL : 'nouser.png'} alt={user.displayName} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <button className="btn btn-sm  btn-ghost">{user.displayName}</button>
 
-        
-     
-        </div>
+                                </li>
+                                <li>
+                                    <button className="btn btn-sm  btn-ghost bg-red-500 text-white font-bold"
+                                        onClick={logOut}
+                                    >Logout</button>
+
+                                </li>
+                            </ul>
+                        </div>
+                            :
+                            <Link to='/login'>
+                                <button className="btn btn-md  btn-ghost bg-[#3839AF]  text-white font-bold">Login</button>
+                            </Link>
+                    }
+                </div>
       </div>
     );
 };

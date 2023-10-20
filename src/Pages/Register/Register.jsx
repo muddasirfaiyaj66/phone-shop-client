@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, } from "react-router-dom";
+import { Link, useLocation, useNavigate, } from "react-router-dom";
 
 import { BiShowAlt,BiHide } from "react-icons/bi";
 import Swal from "sweetalert2";
@@ -9,12 +9,17 @@ const Register = () => {
   
   
   const [showPassword, setShowPassword]=useState(false);
-    const {createUser} = useContext(AuthContext)
+    const {createUser, handleUpdateProfile} = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleRegister = (event) => {
       event.preventDefault();
-      const form = new FormData(event.currentTarget);
-      const email = form.get("email");
-      const password = form.get("password");
+      const form = event.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const password = form.password.value;
+      const image = form.image.value;
+      
       const accepted = event.target.terms.checked;
      
       
@@ -63,16 +68,23 @@ const Register = () => {
       //create user 
       createUser(email,password)
       .then(result => {
-        console.log(result);
-     
-     
-        
+        handleUpdateProfile(name,image)
+
+        .then( () =>{
+           
         Swal.fire({
           icon: 'success',
           title: 'Congrats!!!',
           text:"User Created Successfully",
         
         })
+        //navigate after register 
+        navigate(location?.state ? location.state: '/')
+
+        })
+     
+     
+       
 
         
       })
@@ -107,6 +119,18 @@ const Register = () => {
             
             <div className="form-control">
               <label className="label">
+                <span className="label-text font-bold">Name</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter Your Name"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
                 <span className="label-text font-bold">Email</span>
               </label>
               <input
@@ -131,6 +155,19 @@ const Register = () => {
               />
               <span className=" flex mt-12 mr-2 right-0 justify-end  text-2xl absolute  " onClick={() =>setShowPassword(!showPassword)}>{ showPassword ? <BiHide></BiHide> : <BiShowAlt></BiShowAlt>}</span>
 
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-bold">Photo Url</span>
+              </label>
+              <input
+                type="text"
+                name="image"
+                placeholder="Enter your photo url"
+                className="input input-bordered"
+                
+              />
             </div>
             <div className="flex gap-2 text-sm mt-5 text-[#706F6F]">
              

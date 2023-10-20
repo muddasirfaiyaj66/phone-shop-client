@@ -34,7 +34,7 @@ const AddPhones = () => {
     <div className="my-10 mb-20">
       <div className="max-w-screen-xl mx-auto bg-[#F4F3F0] p-10 rounded-xl shadow-lg">
         <div className="text-center space-y-8">
-          <h1 className="text-5xl">Add New Phones</h1>
+          <h1 className="text-5xl my-5 font-bold">Add New Phones</h1>
          
         </div>
 
@@ -49,7 +49,7 @@ const AddPhones = () => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Enter Mobile Model Name"
+                  placeholder="Enter Phone Model Name"
                   className="input input-bordered w-full "
                 />
                 

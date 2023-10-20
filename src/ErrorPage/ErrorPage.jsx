@@ -1,10 +1,12 @@
+import Navbar from "../Shared/Navbar/Navbar";
+
+
 
 
 const ErrorPage = () => {
     return (
         <div>
-  
-
+  <Navbar></Navbar>
 <div className="grid h-screen px-4 bg-white place-content-center">
   <div className="text-center">
     <svg
