@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import AddPhones from "../Pages/AddPhones/AddPhones";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import PhoneData from "../Components/PhoneData/PhoneData";
 
 
 const Route = createBrowserRouter([
@@ -30,6 +31,12 @@ const Route = createBrowserRouter([
             {
                 path:'/addphones',
                 element: <PrivateRoute><AddPhones></AddPhones></PrivateRoute>
+            },
+            {
+                path:'/phones/:brand_name',
+                element:<PhoneData></PhoneData>,
+                loader: ({params}) => fetch(`http://localhost:5000/phones/${params.brand_name}`)
+                
             }
         ]
     }

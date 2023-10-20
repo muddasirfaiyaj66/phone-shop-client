@@ -39,7 +39,7 @@ const AddPhones = () => {
             Swal.fire({
               icon: 'success',
               title: 'Success',
-              text: 'Successfully added  New Coffee Data',
+              text: 'Successfully added new phone',
              
             })
           }
