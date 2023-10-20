@@ -12,6 +12,9 @@ const Navbar = () => {
                <li> <NavLink to='/about' className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "bg-[#90EE90]  text-white " : ""
   }>About</NavLink></li>
+               <li> <NavLink to='/addphones' className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "bg-[#90EE90]  text-white " : ""
+  }>Add Phones</NavLink></li>
                <li> <NavLink to='/register' className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "bg-[#90EE90]  text-white " : ""
   }>Register</NavLink></li>
