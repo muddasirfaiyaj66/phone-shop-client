@@ -2,8 +2,11 @@ import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 
 
+
+
 const PhoneDataCard = ({phones}) => {
-    const {_id, name,rating,image,price} =phones;
+    const {_id, name,rating,image,price,brand_name} =phones;
+
   
    
     return (
@@ -30,13 +33,18 @@ const PhoneDataCard = ({phones}) => {
   </div>
   <div className="p-6 pt-0">
 
-   <Link to={`/${_id}`}>
-   <button
+   
+  <Link to={`/phonedetails/${_id}`}>
+   
+  <button 
       className="block w-full select-none rounded-lg btn bg-black hover:bg-[#3839AF] text-white  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="button"
     >
       See Details
-    </button></Link>
+    </button>
+   
+  </Link>
+
   </div>
 </div>
         </div>

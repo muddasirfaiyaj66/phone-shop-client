@@ -7,6 +7,10 @@ import Login from "../Pages/Login/Login";
 import AddPhones from "../Pages/AddPhones/AddPhones";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PhoneData from "../Components/PhoneData/PhoneData";
+import PhoneDetails from "../Components/Details/PhoneDetails";
+import EditData from "../Components/EditData/EditData";
+
+
 
 
 const Route = createBrowserRouter([
@@ -32,13 +36,35 @@ const Route = createBrowserRouter([
                 path:'/addphones',
                 element: <PrivateRoute><AddPhones></AddPhones></PrivateRoute>
             },
+
             {
                 path:'/phones/:brand_name',
                 element:<PhoneData></PhoneData>,
-                loader: ({params}) => fetch(`http://localhost:5000/phones/${params.brand_name}`)
+               loader:()=> fetch('http://localhost:5000/phones')
                 
-            }
-        ]
+                
+            },
+           
+           
+            {
+                path:'/phonedetails/:id',
+                element: <PrivateRoute>
+                    <PhoneDetails></PhoneDetails>
+                </PrivateRoute>,
+                
+            },
+         
+            {
+                path:'/editdata/:id',
+                element: <PrivateRoute>
+                    <EditData></EditData>
+                </PrivateRoute>,
+              
+               
+            },
+           
+           
+        ]       
     }
 ])
 export default Route;

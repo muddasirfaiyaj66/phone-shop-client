@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div data-aos="fade-up"
+        <div  data-aos="fade-up"
         data-aos-duration="1500">
             <footer className="   bg-black text-neutral-content shadow-xl">
  <div className="max-w-screen-xl mx-auto md:flex space-y-5 justify-between gap-10 items-center p-10   ">
