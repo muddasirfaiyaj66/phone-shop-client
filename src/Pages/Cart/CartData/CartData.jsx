@@ -14,7 +14,7 @@ const CartData = ({ cartItem, setCartItems, cartItems }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/cart/${_id}`, {
+        fetch(`https://phone-shop-server-pp2tzhnza-muddasir-faiyajs-projects.vercel.app/cart/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

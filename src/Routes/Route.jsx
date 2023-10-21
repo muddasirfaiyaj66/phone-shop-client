@@ -42,7 +42,7 @@ const Route = createBrowserRouter([
             {
                 path:'/phones/:brand_name',
                 element:<PhoneData></PhoneData>,
-               loader:()=> fetch('https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/phones')
+               loader:()=> fetch('https://phone-shop-server-pp2tzhnza-muddasir-faiyajs-projects.vercel.app/phones')
                 
                 
             },
@@ -57,7 +57,7 @@ const Route = createBrowserRouter([
             },
          
             {
-                path:'/edit/:id',
+                path:'/editdata/:id',
                 element: <PrivateRoute>
                     <EditData></EditData>
                 </PrivateRoute>,
@@ -69,7 +69,7 @@ const Route = createBrowserRouter([
                 element:<PrivateRoute>
                     <Cart></Cart>
                 </PrivateRoute>,
-                loader: ()=> fetch('https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/cart')
+                loader: ()=> fetch('https://phone-shop-server-htoirl07i-muddasir-faiyajs-projects.vercel.app/cart')
             },
             {
                 path:"/about",
