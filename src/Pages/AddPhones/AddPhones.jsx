@@ -67,6 +67,8 @@ const AddPhones = () => {
                 <input
                   type="text"
                   name="name"
+                  
+                  required
                   placeholder="Enter Phone Model Name"
                   className="input input-bordered w-full "
                 />
@@ -78,7 +80,7 @@ const AddPhones = () => {
                  
                 </label>
                 
-                <select name="brand_name"  placeholder="Apple"  className="input input-bordered w-full " >
+                <select name="brand_name" required  placeholder="Apple"  className="input input-bordered w-full " >
                 <option>Apple</option>
                 <option>Samsung</option>
                 <option>Xiaomi</option>
@@ -95,6 +97,7 @@ const AddPhones = () => {
                 <input
                   type="text"
                   name="price"
+                  required
                   placeholder="Price"
                   className="input input-bordered w-full"
                 />
@@ -108,6 +111,7 @@ const AddPhones = () => {
                 <input
                   type="text"
                   name="operating_system"
+                  required
                   placeholder="Operating System "
                   className="input input-bordered w-full"
                 />
@@ -118,7 +122,7 @@ const AddPhones = () => {
                   <span className="label-text font-bold">Ram</span>
                  
                 </label>
-                <select name="ram"  placeholder="Ram"  className="input input-bordered w-full " >
+                <select name="ram" required placeholder="Ram"  className="input input-bordered w-full " >
                 <option>2 GB</option>
                 <option>3 GB</option>
                 <option>4 GB</option>
@@ -135,7 +139,7 @@ const AddPhones = () => {
                   <span className="label-text font-bold">Storage</span>
                  
                 </label>
-                <select name="storage"  placeholder="Storage"  className="input input-bordered w-full " >
+                <select name="storage" required  placeholder="Storage"  className="input input-bordered w-full " >
                 <option>16 GB</option>
                 <option>32 GB</option>
                 <option>64 GB</option>
@@ -154,7 +158,7 @@ const AddPhones = () => {
                   <span className="label-text font-bold">Rating</span>
                  
                 </label>
-                <select name="rating"  placeholder="Rating"  className="input input-bordered w-full " >
+                <select name="rating" required  placeholder="Rating"  className="input input-bordered w-full " >
                 <option>.5</option>
                 <option>1</option>
                 <option>1.5</option>
@@ -174,7 +178,7 @@ const AddPhones = () => {
                   <span className="label-text font-bold">Camera</span>
                  
                 </label>
-                <select name="camera"  placeholder="Camera"  className="input input-bordered w-full " >
+                <select name="camera" required  placeholder="Camera"  className="input input-bordered w-full " >
                 <option>2 MP</option>
                 <option>5 MP</option>
                 <option>8 MP</option>
@@ -204,7 +208,7 @@ const AddPhones = () => {
                  
                 </label>
                 
-                <textarea  name="details" rows="4" className="block p-2.5 input input-bordered rounded-lg w-full text-sm" placeholder="Enter Phone details"></textarea>
+                <textarea  name="details" required rows="4" className="block p-2.5 input input-bordered rounded-lg w-full text-sm" placeholder="Enter Phone details"></textarea>
                 
               </div>
 
@@ -216,6 +220,7 @@ const AddPhones = () => {
                 <input
                   type="text"
                   name="image"
+                  required
                   placeholder="Phone Image"
                   className="input input-bordered w-full"
                 />

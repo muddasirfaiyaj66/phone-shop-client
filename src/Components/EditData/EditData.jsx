@@ -94,6 +94,7 @@ const EditData = () => {
                 <input
                   type="text"
                   name="name"
+                  required
                   defaultValue={name}
                   placeholder="Enter Phone Model Name"
                   className="input input-bordered w-full "
@@ -106,7 +107,9 @@ const EditData = () => {
                  
                 </label>
                 
-                <select name="brand_name" defaultValue={brand_name}   className="input input-bordered w-full " >
+                
+                <select name="brand_name"  required  className="input input-bordered w-full " >
+                <option>{brand_name} </option>
                 <option>Apple</option>
                 <option>Samsung</option>
                 <option>Xiaomi</option>
@@ -123,6 +126,7 @@ const EditData = () => {
                 <input
                   type="text"
                   name="price"
+                  required
                   defaultValue={price}
                   placeholder="Price"
                   className="input input-bordered w-full"
@@ -138,6 +142,7 @@ const EditData = () => {
                   type="text"
                   defaultValue={operating_system}
                   name="operating_system"
+                  required
                   placeholder="Operating System "
                   className="input input-bordered w-full"
                 />
@@ -148,7 +153,8 @@ const EditData = () => {
                   <span className="label-text font-bold">Ram</span>
                  
                 </label>
-                <select name="ram" defaultValue={ram}  placeholder="Ram"  className="input input-bordered w-full " >
+                <select name="ram" required  placeholder="Ram"  className="input input-bordered w-full " >
+                <option>{ram}</option>
                 <option>2 GB</option>
                 <option>3 GB</option>
                 <option>4 GB</option>
@@ -165,7 +171,8 @@ const EditData = () => {
                   <span className="label-text font-bold">Storage</span>
                  
                 </label>
-                <select name="storage" defaultValue={storage}  placeholder="Storage"  className="input input-bordered w-full " >
+                <select name="storage" required  placeholder="Storage"  className="input input-bordered w-full " >
+                <option>{storage}</option>
                 <option>16 GB</option>
                 <option>32 GB</option>
                 <option>64 GB</option>
@@ -184,7 +191,8 @@ const EditData = () => {
                   <span className="label-text font-bold">Rating</span>
                  
                 </label>
-                <select name="rating" defaultValue={rating}  placeholder="Rating"  className="input input-bordered w-full " >
+                <select name="rating" required  placeholder="Rating"  className="input input-bordered w-full " >
+                <option >{rating}</option>
                 <option>.5</option>
                 <option>1</option>
                 <option>1.5</option>
@@ -204,7 +212,8 @@ const EditData = () => {
                   <span className="label-text font-bold">Camera</span>
                  
                 </label>
-                <select name="camera" defaultValue={camera} placeholder="Camera"  className="input input-bordered w-full " >
+                <select name="camera" required placeholder="Camera"  className="input input-bordered w-full " >
+                <option >{camera}</option>
                 <option>2 MP</option>
                 <option>5 MP</option>
                 <option>8 MP</option>
@@ -234,7 +243,7 @@ const EditData = () => {
                  
                 </label>
                 
-                <textarea  name="details" defaultValue={details} rows="4" className="block p-2.5 input input-bordered rounded-lg w-full text-sm" placeholder="Enter Phone details"></textarea>
+                <textarea required name="details" defaultValue={details} rows="4" className="block p-2.5 input input-bordered rounded-lg w-full text-sm" placeholder="Enter Phone details"></textarea>
                 
               </div>
 
@@ -246,6 +255,7 @@ const EditData = () => {
                 <input
                   type="text"
                   name="image"
+                  required
                   defaultValue={image}
                   placeholder="Phone Image"
                   className="input input-bordered w-full"

@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PhoneData from "../Components/PhoneData/PhoneData";
 import PhoneDetails from "../Components/Details/PhoneDetails";
 import EditData from "../Components/EditData/EditData";
+import Cart from "../Pages/Cart/Cart";
 
 
 
@@ -62,6 +63,12 @@ const Route = createBrowserRouter([
               
                
             },
+            {
+                path:'/cart',
+                element:<PrivateRoute>
+                    <Cart></Cart>
+                </PrivateRoute>
+            }
            
            
         ]       
