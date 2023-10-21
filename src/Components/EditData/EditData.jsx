@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-import {  useParams } from "react-router-dom";
+import {  useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const EditData = () => {
  
+ 
 
   const { id } = useParams(); 
+  console.log(id);
   const [phone, setPhone] = useState({});
   
-  useEffect(() => {
-    fetch(`http://localhost:5000/phones/${id}`) 
+  useEffect( () => {
+     fetch(`https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/${id}`) 
       .then((res) => res.json())
       .then((data) => {
         setPhone(data); 
@@ -30,6 +32,7 @@ const EditData = () => {
         camera,
         operating_system,
       } = phone || {};
+      console.log(phone);
     const handleUpdatePhone = event =>{
         event.preventDefault();
 
@@ -53,7 +56,7 @@ const EditData = () => {
         
         console.log(updatePhoneData);
         //send data to the server
-        fetch(`http://localhost:5000/phones/${_id}`, {
+        fetch(`https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/${_id}`, {
           method:"PUT",
           headers:{
             'content-type': 'application/json'

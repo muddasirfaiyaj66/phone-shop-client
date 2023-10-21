@@ -12,7 +12,7 @@ const PhoneDetails = () => {
   const [phone, setPhone] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/phones/${id}`)
+    fetch(`https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/phones/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setPhone(data);
@@ -34,9 +34,23 @@ const PhoneDetails = () => {
     operating_system,
   } = phone;
   const handleAddToCart = () => {
-   
+    const addedCartArray = [];
+    const cartData = JSON.parse(localStorage.getItem("cart"));
+    if(!cartData){
+        addedCartArray.push(phone);
+        localStorage.setItem("cart",JSON.stringify(addedCartArray));
         
-        fetch('http://localhost:5000/cart',{
+        
+       
+
+    }
+    else{
+        const isExist = cartData.find((cart) => cart._id === _id);
+        if(!isExist){
+            addedCartArray.push(...cartData,phone);
+            localStorage.setItem("cart",JSON.stringify(addedCartArray));
+             
+        fetch('https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/cart',{
           method:'POST',
           headers:{
             'Content-Type':'application/json'
@@ -54,6 +68,19 @@ const PhoneDetails = () => {
                 })
               }
             })
+
+        } else{
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You have already Added this Phone!!!',
+                
+              })
+            
+        }
+    }
+      
     
            
         
@@ -128,7 +155,7 @@ const PhoneDetails = () => {
                     </button>
                   </div>
                   <div className="w-full px-4 mb-4 lg:mb-0 lg:w-1/2">
-                    <Link to={`/editdata/${_id}`}>
+                    <Link to={`/edit/${_id}`}>
                       <button className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
                         Edit
                       </button>

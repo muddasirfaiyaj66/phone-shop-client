@@ -26,7 +26,7 @@ const AddPhones = () => {
         
         console.log(newPhoneData);
         //send data to the server
-        fetch('http://localhost:5000/phones', {
+        fetch('https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/phones', {
           method:"POST",
           headers:{
             'content-type': 'application/json'

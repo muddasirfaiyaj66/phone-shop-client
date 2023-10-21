@@ -20,6 +20,9 @@ const PhoneData = () => {
             {
                 filterPhones.map(phones=> <PhoneDataCard key={phones._id} phones={phones}></PhoneDataCard>)
             }
+
+
+
            </div>
         </div>
     );

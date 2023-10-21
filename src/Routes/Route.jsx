@@ -10,6 +10,7 @@ import PhoneData from "../Components/PhoneData/PhoneData";
 import PhoneDetails from "../Components/Details/PhoneDetails";
 import EditData from "../Components/EditData/EditData";
 import Cart from "../Pages/Cart/Cart";
+import About from "../Pages/About/About";
 
 
 
@@ -41,7 +42,7 @@ const Route = createBrowserRouter([
             {
                 path:'/phones/:brand_name',
                 element:<PhoneData></PhoneData>,
-               loader:()=> fetch('http://localhost:5000/phones')
+               loader:()=> fetch('https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/phones')
                 
                 
             },
@@ -56,18 +57,23 @@ const Route = createBrowserRouter([
             },
          
             {
-                path:'/editdata/:id',
+                path:'/edit/:id',
                 element: <PrivateRoute>
                     <EditData></EditData>
                 </PrivateRoute>,
-              
+                
                
             },
             {
                 path:'/cart',
                 element:<PrivateRoute>
                     <Cart></Cart>
-                </PrivateRoute>
+                </PrivateRoute>,
+                loader: ()=> fetch('https://phone-shop-server-a4hxgz8j0-muddasir-faiyajs-projects.vercel.app/cart')
+            },
+            {
+                path:"/about",
+                element:<About></About>
             }
            
            
