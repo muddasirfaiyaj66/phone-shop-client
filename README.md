@@ -39,10 +39,11 @@ Welcome to the documentation for the Phone Shop website! This document outlines 
 ```
 
 To run this project, you will need to add the following environment variables to your .env.local file
-
-`VITE_APIKEY= your firebase project api key`
-`VITE_AUTHDOMAIN= your firebase project AUTHDOMAIN`
-`VITE_PROJECTID= your firebase project PROJECTID`
-`VITE_STORAGEBUCKET= your firebase project STORAGEBUCKET`
-`VITE_MESSAGINGSENDERID= your firebase project MESSAGINGSENDERID`
-`VITE_APPID= your firebase project APPID`
+```bash
+VITE_APIKEY= your firebase project api key
+VITE_AUTHDOMAIN= your firebase project AUTHDOMAIN
+VITE_PROJECTID= your firebase project PROJECTID
+VITE_STORAGEBUCKET= your firebase project STORAGEBUCKET
+VITE_MESSAGINGSENDERID= your firebase project MESSAGINGSENDERID
+VITE_APPID= your firebase project APPID
+```
