@@ -1,14 +1,10 @@
 
+
 ## Phone Shop Website Documentation
 
 ## 
-Client site Code Link: https://github.com/programming-hero-web-course-4/b8a10-brandshop-client-side-muddasirfaiyaj66
 
-Server Site Code Link: https://github.com/programming-hero-web-course-4/b8a10-brandshop-server-side-muddasirfaiyaj66
-
-Client live link: https://phone-shop-46557.web.app/
-
-Server Live Link : https://phone-shop-server-pp2tzhnza-muddasir-faiyajs-projects.vercel.app/
+ live link: https://phone-shop-46557.web.app/
 
 ## 🚀 Introduction
 Welcome to the documentation for the Phone Shop website! This document outlines the key features and functionality of the website.
@@ -27,3 +23,26 @@ Welcome to the documentation for the Phone Shop website! This document outlines 
 - Users can add mobile phones to their shopping cart.
 - Users can remove mobiles from their shopping cart.
 
+## To install this project locally 
+
+
+
+ 
+
+
+## Environment Variables
+
+```bash
+  git clone https://github.com/muddasirfaiyaj66/phone-shop-client
+  npm install
+  npm run dev
+```
+
+To run this project, you will need to add the following environment variables to your .env.local file
+
+`VITE_APIKEY= your firebase project api key`
+`VITE_AUTHDOMAIN= your firebase project AUTHDOMAIN`
+`VITE_PROJECTID= your firebase project PROJECTID`
+`VITE_STORAGEBUCKET= your firebase project STORAGEBUCKET`
+`VITE_MESSAGINGSENDERID= your firebase project MESSAGINGSENDERID`
+`VITE_APPID= your firebase project APPID`
