@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import {  useEffect, useState } from "react";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { Rating } from "@mui/material";
-
+import { Toaster, toast } from 'sonner';
 
 const PhoneDetails = () => {
  
@@ -12,14 +12,14 @@ const PhoneDetails = () => {
   const [phone, setPhone] = useState({});
 
   useEffect(() => {
-    fetch(`https://phone-shop-server-pp2tzhnza-muddasir-faiyajs-projects.vercel.app/phones/${id}`)
+    fetch(`https://phone-shop-server-rho.vercel.app/phones/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setPhone(data);
        
       });
   }, [id]);
-
+console.log(phone);
   const {
     _id,
     name,
@@ -33,60 +33,44 @@ const PhoneDetails = () => {
     camera,
     operating_system,
   } = phone;
+
+  
   const handleAddToCart = () => {
-    const addedCartArray = [];
-    const cartData = JSON.parse(localStorage.getItem("cart"));
-    if(!cartData){
-        addedCartArray.push(phone);
-        localStorage.setItem("cart",JSON.stringify(addedCartArray));
-        
-        
-       
-
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    const isExist = cartData.find((cart) => cart._id === phone._id);
+  
+    if (!isExist) {
+      const updatedCartData = [...cartData, phone];
+      localStorage.setItem("cart", JSON.stringify(updatedCartData));
+  
+      fetch('https://phone-shop-server-rho.vercel.app/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(phone)
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.insertedId) {
+            // Swal.fire({
+            //   icon: 'success',
+            //   title: 'Success',
+            //   text: 'Successfully added to cart',
+            // });
+            toast.success('Successfully added to cart');
+          }
+        });
+    } else {
+      // Swal.fire({
+      //   icon: 'error',
+      //   title: 'Oops...',
+      //   text: 'You have already added this phone!',
+      // });
+      toast.error('You have already added this phone!');
     }
-    else{
-        const isExist = cartData.find((cart) => cart._id === _id);
-        if(!isExist){
-            addedCartArray.push(...cartData,phone);
-            localStorage.setItem("cart",JSON.stringify(addedCartArray));
-             
-        fetch('https://phone-shop-server-pp2tzhnza-muddasir-faiyajs-projects.vercel.app/cart',{
-          method:'POST',
-          headers:{
-            'Content-Type':'application/json'
-          },
-          body: JSON.stringify(phone)
-        } )
-            .then(res=> res.json())
-            .then(data => {
-              if(data.insertedId){
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Success',
-                  text: 'Successfully added to cart',
-                 
-                })
-              }
-            })
-
-        } else{
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'You have already Added this Phone!!!',
-                
-              })
-            
-        }
-    }
-      
-    
-           
-        
- 
   };
-
+  
   return (
     <>
       <section className="overflow-hidden p-5 md:P-10 bg-white py-11 font-poppins ">
@@ -116,14 +100,18 @@ const PhoneDetails = () => {
                     <span className="ml-2 font-bold text-xl">{brand_name}</span>
                   </p>
                   <p className="block font-sans my-3 text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-                    <Rating
-                      name="size-large"
-                      style={{ color: "tomato" }}
-                      defaultValue={rating}
-                      precision={0.5}
-                      size="large"
-                    />
+                    {rating && (
+                      <Rating
+                        name="size-large"
+                        style={{ color: "tomato" }}
+                        value={parseFloat(rating)}
+                        precision={0.5}
+                        size="large"
+                        readOnly
+                      />
+                    )}
                   </p>
+
 
                   <div className="flex ml-2 text-xl items-center mt-5 font-bold mb-6">
                     <ul className="list-disc">
@@ -147,6 +135,7 @@ const PhoneDetails = () => {
 
                 <div className="flex flex-wrap items-center -mx-4 ">
                   <div className="w-full px-4 mb-4 lg:w-1/2 lg:mb-0">
+                  <Toaster richColors  />
                     <button
                       onClick={handleAddToCart}
                       className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300"

@@ -1,5 +1,6 @@
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import Swal from "sweetalert2";
+
 const CartData = ({ cartItem, setCartItems, cartItems }) => {
   const { _id, name, image, brand_name, price } = cartItem;
 
@@ -14,19 +15,18 @@ const CartData = ({ cartItem, setCartItems, cartItems }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://phone-shop-server-pp2tzhnza-muddasir-faiyajs-projects.vercel.app/cart/${_id}`, {
+        fetch(`https://phone-shop-server-rho.vercel.app/cart/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              localStorage.removeItem("your_key_here")
-              Swal.fire(
-                
-                "Deleted!",
-                "Your Phone data has been deleted.",
-                "success"
-              );
+              // Remove item from local storage
+              const cartData = JSON.parse(localStorage.getItem("cart"));
+              const updatedCartData = cartData.filter((item) => item._id !== _id);
+              localStorage.setItem("cart", JSON.stringify(updatedCartData));
+
+              Swal.fire("Deleted!", "Your Phone data has been deleted.", "success");
               const remaining = cartItems.filter((car) => car._id !== _id);
               setCartItems(remaining);
             }
@@ -34,6 +34,7 @@ const CartData = ({ cartItem, setCartItems, cartItems }) => {
       }
     });
   };
+
   return (
     <div>
       <div className="flex justify-center items-center w-full space-x-2 sm:space-x-4">
@@ -59,7 +60,7 @@ const CartData = ({ cartItem, setCartItems, cartItems }) => {
           </div>
           <div
             onClick={() => handleDelete(_id)}
-            className="flex text-sm divide-x"
+            className="flex text-sm divide-x cursor-pointer"
           >
             <button
               type="button"

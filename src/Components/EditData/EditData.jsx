@@ -12,7 +12,7 @@ const EditData = () => {
   const [phone, setPhone] = useState({});
   
   useEffect( () => {
-     fetch(`https://phone-shop-server-pp2tzhnza-muddasir-faiyajs-projects.vercel.app/phones/${id}`) 
+     fetch(`https://phone-shop-server-rho.vercel.app/phones/${id}`) 
       .then((res) => res.json())
       .then((data) => {
         setPhone(data); 
@@ -56,7 +56,7 @@ const EditData = () => {
         
         console.log(updatePhoneData);
         //send data to the server
-        fetch(`https://phone-shop-server-pp2tzhnza-muddasir-faiyajs-projects.vercel.app/phones/${id}`, {
+        fetch(`https://phone-shop-server-rho.vercel.app/phones/${id}`, {
           method:"PUT",
           headers:{
             'content-type': 'application/json'
